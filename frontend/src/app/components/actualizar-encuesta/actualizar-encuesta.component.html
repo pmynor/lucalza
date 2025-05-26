@@ -1,0 +1,20 @@
+<div class="formulario">
+    <h2>Actualizar Encuesta</h2>
+  
+    <p><strong>Título:</strong> {{ titulo }}</p>
+    <p><strong>Descripción:</strong> {{ descripcion }}</p>
+  
+    <h3>Preguntas</h3>
+  
+    <div *ngFor="let pregunta of preguntas; let i = index" class="pregunta">
+      <input type="text" [(ngModel)]="preguntas[i].texto" placeholder="Escribe la pregunta" />
+      <button (click)="eliminarPregunta(i)" *ngIf="preguntas.length > 1">Eliminar</button>
+    </div>
+  
+    <button (click)="agregarPregunta()">Agregar Pregunta</button>
+    <br /><br />
+    <button (click)="guardarCambios()">Guardar Cambios</button>
+  
+    <p class="mensaje">{{ mensaje }}</p>
+  </div>
+  

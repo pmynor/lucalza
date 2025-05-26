@@ -1,0 +1,44 @@
+<h2>Crear Nueva Encuesta</h2>
+
+<form (ngSubmit)="crearPersona()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="persona.nombre" name="nombre" required>
+  </div>
+
+  <div class="form-group">
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" [(ngModel)]="persona.direccion" name="direccion">
+  </div>
+
+  <div class="form-group">
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" [(ngModel)]="persona.telefono" name="telefono">
+  </div>
+
+  <div class="form-group">
+    <label for="nacionalidad">Nacionalidad:</label>
+    <input type="text" id="nacionalidad" [(ngModel)]="persona.nacionalidad" name="nacionalidad">
+  </div>
+
+  <div class="form-group">
+    <label>Ubicación detectada:</label>
+    <p><strong>Lat:</strong> {{ persona.latitud }}<br><strong>Lng:</strong> {{ persona.longitud }}</p>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="form-group">
+    <label for="latitud">Latitud:</label>
+    <input type="number" id="latitud" [(ngModel)]="persona.latitud" name="latitud" step="any">
+  </div>
+
+  <div class="form-group">
+    <label for="longitud">Longitud:</label>
+    <input type="number" id="longitud" [(ngModel)]="persona.longitud" name="longitud" step="any">
+  </div>
+
+  <button type="submit">Crear persona</button>
+</form>
+
+<p class="mensaje">{{ mensaje }}</p>

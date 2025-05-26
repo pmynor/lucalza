@@ -1,0 +1,30 @@
+<h2>Listado de Encuestas</h2>
+
+<table *ngIf="encuestas.length > 0; else sinDatos">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of encuestas">
+      <td>{{ e.titulo }}</td>
+      <td>{{ e.descripcion }}</td>
+      <td>
+        <button (click)="actualizar(e.id)">Actualizar</button>
+        <button (click)="eliminar(e.id)">Eliminar</button>
+        <a [routerLink]="['/home/encuestas', e.id, 'estadisticas']">Ver Resultados</a>
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #sinDatos>
+  <p>No hay encuestas disponibles.</p>
+</ng-template>
+
+<p class="mensaje">{{ mensaje }}</p>

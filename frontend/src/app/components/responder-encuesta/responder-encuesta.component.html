@@ -1,0 +1,28 @@
+<div class="formulario">
+  <h2>Responder Encuesta</h2>
+
+  <label>Selecciona Persona:</label>
+  <select [(ngModel)]="personaId">
+    <option [ngValue]="0" disabled>-- Selecciona --</option>
+    <option *ngFor="let p of personas" [ngValue]="p.id">{{ p.nombre }}</option>
+  </select>
+
+  <label>Selecciona Encuesta:</label>
+  <select [(ngModel)]="encuestaId" (change)="cargarPreguntas()">
+    <option [ngValue]="0" disabled>-- Selecciona --</option>
+    <option *ngFor="let e of encuestas" [ngValue]="e.id">{{ e.titulo }}</option>
+  </select>
+
+  <div *ngIf="respuestas.length > 0">
+    <h3>Valora cada pregunta del 1 al 10</h3>
+    <div *ngFor="let r of respuestas; let i = index" class="pregunta">
+      <p><strong>{{ r.texto }}</strong></p>
+      <input type="range" min="1" max="10" [(ngModel)]="respuestas[i].valor" />
+      <span>{{ respuestas[i].valor }}</span>
+    </div>
+
+    <button (click)="enviarRespuestas()">Enviar Respuestas</button>
+  </div>
+
+  <p class="mensaje">{{ mensaje }}</p>
+</div>

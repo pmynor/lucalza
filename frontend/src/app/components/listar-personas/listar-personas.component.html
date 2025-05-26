@@ -1,0 +1,19 @@
+<h2>Listado de Personas</h2>
+
+<div *ngIf="encuestas.length > 0; else sinEncuestas" class="persona-list">
+  <div *ngFor="let e of encuestas" class="persona-card">
+    <p><strong>Nombre:</strong> {{ e.nombre }}</p>
+    <p><strong>Dirección:</strong> {{ e.direccion }}</p>
+    <p><strong>Teléfono:</strong> {{ e.telefono }}</p>
+    <p><strong>Nacionalidad:</strong> {{ e.nacionalidad }}</p>
+    <div class="map" [id]="getMapId(e)"></div>
+
+
+  </div>
+</div>
+
+<ng-template #sinEncuestas>
+  <p>No hay personas registradas.</p>
+</ng-template>
+
+<p>{{ mensaje }}</p>
